@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Night Arina - Gaming World</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .background {
+      background-image: url('https://images.pexels.com/photos/7862493/pexels-photo-7862493.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      filter: brightness(0.4);
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: red;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: red;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      background: black;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 150px 20px 100px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      color: red;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+
+    .cta-button {
+      padding: 15px 30px;
+      background: red;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #c40000;
+    }
+
+    .games-gallery {
+      padding: 80px 20px;
+      text-align: center;
+      animation: slideIn 1.5s ease-out;
+    }
+
+    .games {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .game-card {
+      width: 300px;
+      background-color: #1e1e6f;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .game-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .game-card h3 {
+      margin-top: 10px;
+      color: #ff4757;
+    }
+
+    section#about,
+    section#contact {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 2s;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .games {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .game-card {
+        width: 90%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background"></div>
+
+  <header>
+    <nav>
+      <div class="logo">Night Arina</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to Night Arina</h1>
+    <p>Your ultimate destination for epic gaming experiences!</p>
+    <a href="#games" class="cta-button">Explore Games</a>
+  </section>
+
+  <section id="games" class="games-gallery">
+    <h2>GAMES</h2>
+    <div class="games">
+      <div class="game-card">
+        <img src="https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ghost of Knight">
+        <h3>Battle Showdown</h3>
+        <p>A tactical shooter that requires sharp aim and strategy.</p>
+      </div>
+      <div class="game-card">
+        <img src="https://images.pexels.com/photos/7862505/pexels-photo-7862505.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Neithercraft">
+        <h3>Neithercraft</h3>
+        <p>Build, explore, and survive in a pixelated world of creativity.</p>
+      </div>
+      <div class="game-card">
+        <img src="https://images.pexels.com/photos/7047538/pexels-photo-7047538.jpeg?auto=compress&cs=tinysrgb&w=600" alt="🔥 Ghost of Knight">
+        <h3>🔥 Ghost of Knight</h3>
+        <p>Battle royale meets building in this iconic shooter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Night Arina</h2>
+    <p>Night Arina is your portal to the gaming universe. Whether you're into tactical FPS, open-world sandbox, or competitive battle royales, we've got the games and the community for you.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or want to collaborate? Drop us a message!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Night Arina. Open-source & made for gamers, by gamers.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
